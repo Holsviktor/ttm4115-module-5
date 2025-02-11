@@ -1,6 +1,5 @@
 from stmpy import Driver, Machine
 from sensor import Sensor
-import keyboard
 
 class HeadLamp:
     def __init__(self,driver, name = 'headlamp'):
@@ -89,7 +88,8 @@ class HeadLamp:
         driver.add_machine(self.stm)
 
     def do_light(self,on):
-        print(f'\r\033[K[{on * "\033[33m*\033[0m"}{(not on) * " "}] <- headlamp', end='')
+        light_string = "\033[33m*\033[0m"
+        print(f'\r\033[K[{on * light_string}{(not on) * " "}] <- headlamp', end='')
 
 
 if __name__ == '__main__':
